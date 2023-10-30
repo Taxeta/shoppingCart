@@ -6,7 +6,7 @@ interface ItemCardProps {
 
 const CardItem = ({ item }: ItemCardProps): React.ReactElement => {
   return (
-    <article className="item">
+    <article className="item-card">
       <img src={item.image} alt={item.name} />
       <ul>
         <li>{item.name}</li>

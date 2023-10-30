@@ -5,15 +5,13 @@ import CardItem from "../CardItem/CardItem";
 const ItemsList = (): React.ReactElement => {
   const { items } = useContext(ItemsContext);
   return (
-    <>
-      <ul className="shop-items">
-        {items.map((item) => (
-          <li key={item.id}>
-            <CardItem item={item} />
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className="shop-items">
+      {items.map((item) => (
+        <li key={item.id}>
+          <CardItem item={item} />
+        </li>
+      ))}
+    </ul>
   );
 };
 

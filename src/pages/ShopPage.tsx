@@ -1,7 +1,15 @@
+import { useContext, useEffect } from "react";
 import ItemsList from "../Components/ItemsList/ItemsList";
+import ItemsContext from "../store/items/context/ItemsContext";
 import "./ShopPage.css";
 
 const ShopPage = (): React.ReactElement => {
+  const { loadItems } = useContext(ItemsContext);
+
+  useEffect(() => {
+    loadItems();
+  }, [loadItems]);
+
   return (
     <section className="page">
       <div className="page__left-side">
