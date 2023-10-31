@@ -1,17 +1,29 @@
 .page {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 5px;
+  padding: 25px;
 }
 
 .page__left-side {
-  padding: 5px;
-  border: 1px solid;
-  border-radius: 15px;
+  padding: 0 10px 0 0;
+  border-right: 2px solid;
   align-items: center;
   text-align: center;
 }
 
 .page__right-side {
-  padding: 0 0 0 5px;
+  padding: 0 0 0 10px;
+}
+
+.page__left-title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(9, 9, 58);
+  margin-bottom: 15px;
+}
+
+.page__right-title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(9, 9, 58);
+  text-align: center;
+  gap: 5px;
 }

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ItemsContext from "../../store/items/context/ItemsContext";
 import CardItem from "../CardItem/CardItem";
+import "./ItemsList.css";
 
 const ItemsList = (): React.ReactElement => {
   const { items } = useContext(ItemsContext);
