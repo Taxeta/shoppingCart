@@ -10,6 +10,7 @@
   background-color: rgb(255, 250, 250);
   overflow: hidden;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .item__image {
@@ -19,6 +20,7 @@
 .item__title {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-bottom: 10px;
 }
 
 .item__price {

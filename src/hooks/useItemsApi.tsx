@@ -15,7 +15,18 @@ const useItemsApi = () => {
     }
   }, [apiUrl]);
 
-  return { getItemsApi };
+  const getItemApiById = useCallback(async (itemId: number) => {
+    try {
+      const selectedItem = await fetch(`${apiUrl}/${itemId}`);
+      const getItemId = (await selectedItem.json()) as Item;
+
+      return getItemId;
+    } catch (error) {
+      throw new Error("Can't select the item");
+    }
+  }, []);
+
+  return { getItemsApi, getItemApiById };
 };
 
 export default useItemsApi;
