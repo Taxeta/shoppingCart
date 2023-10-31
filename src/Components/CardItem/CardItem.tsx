@@ -15,7 +15,7 @@ const CardItem = ({ item }: ItemCardProps): React.ReactElement => {
         width={58}
         height={58}
       />
-      <ul className="item__text-container">
+      <ul className="item__list-container">
         <li className="item__title">{item.name}</li>
         <li className="item__price">{item.price} €</li>
       </ul>
