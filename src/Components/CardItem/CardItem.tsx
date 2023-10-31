@@ -1,4 +1,5 @@
 import { Item } from "../../types";
+import "./CardItem.css";
 
 interface ItemCardProps {
   item: Item;
@@ -7,10 +8,16 @@ interface ItemCardProps {
 const CardItem = ({ item }: ItemCardProps): React.ReactElement => {
   return (
     <article className="item-card">
-      <img src={item.image} alt={item.name} />
-      <ul>
-        <li>{item.name}</li>
-        <li>{item.price} €</li>
+      <img
+        className="item__image"
+        src={item.image}
+        alt={item.name}
+        width={58}
+        height={58}
+      />
+      <ul className="item__text-container">
+        <li className="item__title">{item.name}</li>
+        <li className="item__price">{item.price} €</li>
       </ul>
     </article>
   );
