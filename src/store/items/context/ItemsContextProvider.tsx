@@ -7,19 +7,44 @@ import useItemsApi from "../../../hooks/useItemsApi";
 const ItemsContextProvider = ({ children }: PropsWithChildren) => {
   const [items, setItems] = useState<Item[]>([]);
 
-  const { getItemsApi } = useItemsApi();
+  const { getItemsApi, getItemApiById, toggleItemSelected } = useItemsApi();
 
   const loadItems = useCallback(async () => {
     const apiItems = await getItemsApi();
     setItems([...apiItems]);
   }, [getItemsApi]);
 
+  const getItemById = useCallback(
+    async (itemId: number) => {
+      const apiItem = await getItemApiById(itemId);
+      return apiItem;
+    },
+    [getItemApiById],
+  );
+
+  const togglePropertyIsSelected = useCallback(
+    async (itemId: number, isSelected: boolean) => {
+      await toggleItemSelected(itemId, {
+        isSelected,
+      });
+
+      const updatedItems = items.map((item) =>
+        item.id === itemId ? { ...item, isSelected: !item.isSelected } : item,
+      );
+
+      setItems(updatedItems);
+    },
+    [toggleItemSelected, items],
+  );
+
   const itemsMemoValue = useMemo(
     (): ItemsContextStructure => ({
       items,
       loadItems,
+      getItemById,
+      togglePropertyIsSelected,
     }),
-    [items, loadItems],
+    [items, loadItems, getItemById, togglePropertyIsSelected],
   );
 
   return (
