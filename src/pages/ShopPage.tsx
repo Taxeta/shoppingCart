@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import ItemsList from "../Components/ItemsList/ItemsList";
 import ItemsContext from "../store/items/context/ItemsContext";
 import "./ShopPage.css";
+import ShoppingCart from "../Components/ShoppingCart/ShoppingCart";
 
 const ShopPage = (): React.ReactElement => {
   const { loadItems } = useContext(ItemsContext);
@@ -20,6 +21,9 @@ const ShopPage = (): React.ReactElement => {
         <h2 className="page__right-title">
           Here you can select how many items you want buy
         </h2>
+        <div className="shopping-cart-container">
+          <ShoppingCart />
+        </div>
       </div>
     </section>
   );

@@ -28,15 +28,11 @@ const ItemsContextProvider = ({ children }: PropsWithChildren) => {
         isSelected,
       });
 
-      const selectedItem = items.find((item) => item.id === itemId);
+      const updatedItems = items.map((item) =>
+        item.id === itemId ? { ...item, isSelected: !item.isSelected } : item,
+      );
 
-      if (selectedItem) {
-        const updatedItems = items.map((item) =>
-          item.id === itemId ? { ...item, isSelected: !isSelected } : item,
-        );
-
-        setItems(updatedItems);
-      }
+      setItems(updatedItems);
     },
     [toggleItemSelected, items],
   );

@@ -1,4 +1,5 @@
 import { Item } from "../../types";
+import { useState, useEffect } from "react";
 import "./CardItem.css";
 
 interface ItemCardProps {
@@ -6,8 +7,16 @@ interface ItemCardProps {
 }
 
 const CardItem = ({ item }: ItemCardProps): React.ReactElement => {
+  const [isSelected, setIsSelected] = useState(item.isSelected);
+
+  useEffect(() => {
+    setIsSelected(item.isSelected);
+  }, [item.isSelected]);
+
   return (
-    <article className="item-card">
+    <article
+      className={isSelected ? "item-card-selected" : "item-card-unselected"}
+    >
       <img
         className="item__image"
         src={item.image}
