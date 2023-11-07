@@ -2,6 +2,7 @@ import { useContext } from "react";
 import ItemsContext from "../../store/items/context/ItemsContext";
 import ShoppingList from "../ShoppingList/ShoppingList";
 import UiContext from "../../store/UiProvider/UiContext";
+import "./ShoppingCartList.css";
 
 const ShoppingCartList = (): React.ReactElement => {
   const { items } = useContext(ItemsContext);
@@ -20,20 +21,20 @@ const ShoppingCartList = (): React.ReactElement => {
 
   return (
     <>
-      <ul>
+      <ul className="cart-list">
         {priceSelectedItems.length === 0 && (
           <span>Select phones on the left</span>
         )}
         {items.map((item) =>
           item.isSelected ? (
             <li key={item.id}>
-              <span>{itemPosition++}</span>
+              <span className="cart__item-position">{itemPosition++}.</span>
               {<ShoppingList item={item} />}
             </li>
           ) : null,
         )}
         {priceSelectedItems.length > 0 && (
-          <li>
+          <li className="cart__total-price">
             <span>TOTAL</span>
             <span>{decimalPrice} €</span>
           </li>

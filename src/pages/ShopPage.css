@@ -17,21 +17,21 @@
 
 .page__left-title {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(9, 9, 58);
-  margin-bottom: 15px;
+  color: rgb(31, 31, 104);
+  margin-bottom: 35px;
 }
 
 .page__right-title {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(9, 9, 58);
+  color: rgb(49, 49, 111);
   text-align: center;
   gap: 5px;
 }
 
 .shopping-cart-container {
-  border: 1px solid black;
+  border: 1px solid rgb(30, 110, 43);
   background-color: white;
-  padding: 60px;
+  padding: 40px;
   margin: 60px;
   border-radius: 15px;
 }

@@ -1,0 +1,18 @@
+.cart-list {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 17px;
+}
+
+.cart__total-price {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.cart__item-position {
+  font-weight: bold;
+  font-size: 18px;
+}
