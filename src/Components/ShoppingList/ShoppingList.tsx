@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Item } from "../../types";
 import UiContext from "../../store/UiProvider/UiContext";
-import "./shoppingList.css";
+import "./ShoppingList.css";
 interface shoppCartItem {
   item: Item;
 }
