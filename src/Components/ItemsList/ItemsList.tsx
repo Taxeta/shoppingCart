@@ -12,7 +12,6 @@ const ItemsList = (): React.ReactElement => {
       const selectedPhone = await getItemById(itemId);
       if (selectedPhone) {
         togglePropertyIsSelected(itemId, !selectedPhone.isSelected);
-        console.log(items);
       }
     } catch (error) {
       throw new Error("Can't selected item");
