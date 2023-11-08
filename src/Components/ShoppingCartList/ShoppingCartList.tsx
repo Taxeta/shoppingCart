@@ -1,12 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ItemsContext from "../../store/items/context/ItemsContext";
 import ShoppingList from "../ShoppingList/ShoppingList";
 import UiContext from "../../store/UiProvider/UiContext";
 import "./ShoppingCartList.css";
+import Feedback from "../Feedback/Feedback";
 
 const ShoppingCartList = (): React.ReactElement => {
   const { items } = useContext(ItemsContext);
   const { quantities } = useContext(UiContext);
+  const [showToast, setShowToast] = useState("");
+  const { resetAllItems } = useContext(ItemsContext);
 
   let itemPosition = 1;
 
@@ -18,6 +21,16 @@ const ShoppingCartList = (): React.ReactElement => {
   }, 0);
 
   const decimalPrice = totalPrice.toFixed(2);
+
+  const handleClickFeedback = () => {
+    setShowToast("Succefully buyed!");
+
+    resetAllItems();
+
+    setTimeout(() => {
+      setShowToast("");
+    }, 4000);
+  };
 
   return (
     <>
@@ -39,7 +52,11 @@ const ShoppingCartList = (): React.ReactElement => {
             <span>{decimalPrice} €</span>
           </li>
         )}
+        <button onClick={handleClickFeedback} className="cart__buy-button">
+          Buy All
+        </button>
       </ul>
+      {showToast && <Feedback message={showToast} />}
     </>
   );
 };

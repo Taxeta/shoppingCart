@@ -1,0 +1,13 @@
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #86d745c8;
+  color: #0f1268;
+  padding: 35px 40px;
+  border-radius: 15px;
+  font-size: 26px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+}

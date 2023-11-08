@@ -8,6 +8,7 @@ interface ItemsContextStructure {
     itemId: number,
     isSelected: boolean,
   ) => Promise<void>;
+  resetAllItems: () => void;
 }
 
 export default ItemsContextStructure;

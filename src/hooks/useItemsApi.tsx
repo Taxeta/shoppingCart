@@ -39,7 +39,7 @@ const useItemsApi = () => {
           },
           body: JSON.stringify(selectedProperty),
         });
-        console.log(changeProperty);
+
         return changeProperty;
       } catch (error) {
         throw new Error("Can't change the property");

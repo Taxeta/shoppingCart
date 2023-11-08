@@ -16,3 +16,14 @@
   font-weight: bold;
   font-size: 18px;
 }
+
+.cart__buy-button {
+  padding: 10px;
+  border-radius: 15px;
+  border: solid 1px green;
+  margin: 0 20% 0 20%;
+}
+
+.cart__buy-button:hover {
+  background-color: rgba(0, 128, 0, 0.656);
+}
