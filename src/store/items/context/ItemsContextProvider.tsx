@@ -37,14 +37,23 @@ const ItemsContextProvider = ({ children }: PropsWithChildren) => {
     [toggleItemSelected, items],
   );
 
+  const resetAllItems = useCallback(() => {
+    const restartItems = items.map((item) => ({
+      ...item,
+      isSelected: false,
+    }));
+    setItems(restartItems);
+  }, [items]);
+
   const itemsMemoValue = useMemo(
     (): ItemsContextStructure => ({
       items,
       loadItems,
       getItemById,
       togglePropertyIsSelected,
+      resetAllItems,
     }),
-    [items, loadItems, getItemById, togglePropertyIsSelected],
+    [items, loadItems, getItemById, togglePropertyIsSelected, resetAllItems],
   );
 
   return (
