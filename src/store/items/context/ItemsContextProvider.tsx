@@ -37,13 +37,19 @@ const ItemsContextProvider = ({ children }: PropsWithChildren) => {
     [toggleItemSelected, items],
   );
 
-  const resetAllItems = useCallback(() => {
-    const restartItems = items.map((item) => ({
+  const resetAllItems = useCallback(async () => {
+    const restartItems = items.map((item) => {
+      return toggleItemSelected(item.id, {
+        isSelected: false,
+      });
+    });
+    await Promise.all(restartItems);
+    const updatedItems = items.map((item) => ({
       ...item,
       isSelected: false,
     }));
-    setItems(restartItems);
-  }, [items]);
+    setItems(updatedItems);
+  }, [items, toggleItemSelected]);
 
   const itemsMemoValue = useMemo(
     (): ItemsContextStructure => ({

@@ -27,3 +27,11 @@
 .cart__buy-button:hover {
   background-color: rgba(0, 128, 0, 0.656);
 }
+
+.cart__empty {
+  text-align: center;
+  font-size: 18px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-bottom: 25px;
+}
