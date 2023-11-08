@@ -36,7 +36,9 @@ const ShoppingCartList = (): React.ReactElement => {
     <>
       <ul className="cart-list">
         {priceSelectedItems.length === 0 && (
-          <span>Select phones on the left</span>
+          <span className="cart__empty">
+            Actually you have 0 phones on the Cart.
+          </span>
         )}
         {items.map((item) =>
           item.isSelected ? (
@@ -52,9 +54,11 @@ const ShoppingCartList = (): React.ReactElement => {
             <span>{decimalPrice} €</span>
           </li>
         )}
-        <button onClick={handleClickFeedback} className="cart__buy-button">
-          Buy All
-        </button>
+        {priceSelectedItems.length !== 0 && (
+          <button onClick={handleClickFeedback} className="cart__buy-button">
+            Buy All
+          </button>
+        )}
       </ul>
       {showToast && <Feedback message={showToast} />}
     </>
