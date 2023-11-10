@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import ItemsContext from "../../store/items/context/ItemsContext";
 import ShoppingList from "../ShoppingList/ShoppingList";
+import paperbin from "../../assets/paperbin.svg";
 import UiContext from "../../store/UiProvider/UiContext";
-import "./ShoppingCartList.css";
 import Feedback from "../Feedback/Feedback";
+import "./ShoppingCartList.css";
 
 const ShoppingCartList = (): React.ReactElement => {
   const { items, resetAllItems } = useContext(ItemsContext);
@@ -26,8 +27,18 @@ const ShoppingCartList = (): React.ReactElement => {
       return total + quantity;
     }, 0);
 
-  const handleClickFeedback = () => {
+  const handleClickBuyFeedback = () => {
     setShowToast("Succefully buyed!");
+
+    resetAllItems();
+
+    setTimeout(() => {
+      setShowToast("");
+    }, 4000);
+  };
+
+  const handleClickCleanCart = () => {
+    setShowToast("Cart successfully deleted!");
 
     resetAllItems();
 
@@ -51,13 +62,21 @@ const ShoppingCartList = (): React.ReactElement => {
             Actually you have 0 phones on the Cart.
           </span>
         )}
-        {sortedSelectedItems.map((item) =>
-          item.isSelected ? (
-            <li key={item.id}>{<ShoppingList item={item} />}</li>
-          ) : null,
-        )}
         {priceSelectedItems.length > 0 && (
           <>
+            <button className="cart-delete" onClick={handleClickCleanCart}>
+              <img
+                src={paperbin}
+                alt="delete icon"
+                width="30px"
+                height="30px"
+              />
+            </button>
+            {sortedSelectedItems.map((item) =>
+              item.isSelected ? (
+                <li key={item.id}>{<ShoppingList item={item} />}</li>
+              ) : null,
+            )}
             <span>Total cart: {totalItemsCart}</span>
             <li className="cart__total-price">
               <span>TOTAL</span>
@@ -66,7 +85,7 @@ const ShoppingCartList = (): React.ReactElement => {
           </>
         )}
         {priceSelectedItems.length !== 0 && (
-          <button onClick={handleClickFeedback} className="cart__buy-button">
+          <button onClick={handleClickBuyFeedback} className="cart__buy-button">
             Buy All
           </button>
         )}

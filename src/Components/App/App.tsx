@@ -1,6 +1,6 @@
-import ShopPage from "../pages/ShopPage";
+import ShopPage from "../../pages/ShopPage";
 import { Route, Routes, Navigate } from "react-router-dom";
-import paths from "../paths/paths";
+import paths from "../../paths/paths";
 
 const App = (): React.ReactElement => {
   return (
