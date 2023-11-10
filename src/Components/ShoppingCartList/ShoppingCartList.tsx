@@ -19,6 +19,13 @@ const ShoppingCartList = (): React.ReactElement => {
 
   const decimalPrice = totalPrice.toFixed(2);
 
+  const totalItemsCart = items
+    .filter((item) => item.isSelected)
+    .reduce((total, item) => {
+      const quantity = quantities[item.id] || 1;
+      return total + quantity;
+    }, 0);
+
   const handleClickFeedback = () => {
     setShowToast("Succefully buyed!");
 
@@ -50,10 +57,13 @@ const ShoppingCartList = (): React.ReactElement => {
           ) : null,
         )}
         {priceSelectedItems.length > 0 && (
-          <li className="cart__total-price">
-            <span>TOTAL</span>
-            <span>{decimalPrice} €</span>
-          </li>
+          <>
+            <span>Total cart: {totalItemsCart}</span>
+            <li className="cart__total-price">
+              <span>TOTAL</span>
+              <span>{decimalPrice} €</span>
+            </li>
+          </>
         )}
         {priceSelectedItems.length !== 0 && (
           <button onClick={handleClickFeedback} className="cart__buy-button">
