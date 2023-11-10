@@ -6,12 +6,9 @@ import "./ShoppingCartList.css";
 import Feedback from "../Feedback/Feedback";
 
 const ShoppingCartList = (): React.ReactElement => {
-  const { items } = useContext(ItemsContext);
-  const { quantities } = useContext(UiContext);
+  const { items, resetAllItems } = useContext(ItemsContext);
+  const { quantities, selectItemsOrder } = useContext(UiContext);
   const [showToast, setShowToast] = useState("");
-  const { resetAllItems } = useContext(ItemsContext);
-
-  let itemPosition = 1;
 
   const priceSelectedItems = items.filter((item) => item.isSelected);
 
@@ -21,6 +18,13 @@ const ShoppingCartList = (): React.ReactElement => {
   }, 0);
 
   const decimalPrice = totalPrice.toFixed(2);
+
+  const totalItemsCart = items
+    .filter((item) => item.isSelected)
+    .reduce((total, item) => {
+      const quantity = quantities[item.id] || 1;
+      return total + quantity;
+    }, 0);
 
   const handleClickFeedback = () => {
     setShowToast("Succefully buyed!");
@@ -32,6 +36,13 @@ const ShoppingCartList = (): React.ReactElement => {
     }, 4000);
   };
 
+  const sortedSelectedItems = items.slice().sort((a, b) => {
+    const indexA = selectItemsOrder.indexOf(a.id);
+    const indexB = selectItemsOrder.indexOf(b.id);
+
+    return indexA - indexB;
+  });
+
   return (
     <>
       <ul className="cart-list">
@@ -40,19 +51,19 @@ const ShoppingCartList = (): React.ReactElement => {
             Actually you have 0 phones on the Cart.
           </span>
         )}
-        {items.map((item) =>
+        {sortedSelectedItems.map((item) =>
           item.isSelected ? (
-            <li key={item.id}>
-              <span className="cart__item-position">{itemPosition++}.</span>
-              {<ShoppingList item={item} />}
-            </li>
+            <li key={item.id}>{<ShoppingList item={item} />}</li>
           ) : null,
         )}
         {priceSelectedItems.length > 0 && (
-          <li className="cart__total-price">
-            <span>TOTAL</span>
-            <span>{decimalPrice} €</span>
-          </li>
+          <>
+            <span>Total cart: {totalItemsCart}</span>
+            <li className="cart__total-price">
+              <span>TOTAL</span>
+              <span>{decimalPrice} €</span>
+            </li>
+          </>
         )}
         {priceSelectedItems.length !== 0 && (
           <button onClick={handleClickFeedback} className="cart__buy-button">

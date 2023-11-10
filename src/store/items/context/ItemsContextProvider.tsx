@@ -43,7 +43,9 @@ const ItemsContextProvider = ({ children }: PropsWithChildren) => {
         isSelected: false,
       });
     });
+
     await Promise.all(restartItems);
+
     const updatedItems = items.map((item) => ({
       ...item,
       isSelected: false,

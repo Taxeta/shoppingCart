@@ -3,6 +3,7 @@ import UiContext from "./UiContext";
 
 const UiContextProvider = ({ children }: PropsWithChildren) => {
   const [quantities, setQuantities] = useState({});
+  const [selectItemsOrder, setSelectedItemsOrder] = useState<number[]>([]);
 
   const updateQuantity = useCallback((itemId: number, quantity: number) => {
     setQuantities((prevQuantities) => ({
@@ -11,10 +12,16 @@ const UiContextProvider = ({ children }: PropsWithChildren) => {
     }));
   }, []);
 
+  const updateSelectItemsOrder = useCallback((order: number[]) => {
+    setSelectedItemsOrder(order);
+  }, []);
+
   const contextValue = useMemo(
     () => ({
       quantities,
       updateQuantity,
+      selectItemsOrder,
+      updateSelectItemsOrder,
     }),
     [quantities, updateQuantity],
   );

@@ -21,7 +21,11 @@ const ItemsList = (): React.ReactElement => {
   return (
     <ul className="shop-items">
       {items.map((item) => (
-        <li key={item.id} onClick={() => handlePhoneClick(item.id)}>
+        <li
+          className="shop__item"
+          key={item.id}
+          onClick={() => handlePhoneClick(item.id)}
+        >
           <CardItem item={item} />
         </li>
       ))}
