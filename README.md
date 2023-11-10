@@ -18,3 +18,14 @@ Esta es una App hecha con React de una única página dividida en dos partes.
 - Cantidad limitada de productos 2 por cada uno de ellos. Si hay 2, se deshabilita el boton (+)
 
 - La gestión del carrito se hará con React context
+
+---
+
+- modificaciones:
+  No indexar artículos y hacer contador con cantidad total de unidades.
+
+  Aplicar un eliminar items en la parte de la lista del carrito.
+
+  Mirar de aplicar responsive.
+
+  Al añadir artículos hacerlo de forma que se añadan en el orden en que se clican.
