@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 10px;
+  padding: 10px 0;
   border-bottom: 1px solid rgb(63, 62, 62);
 }
 
@@ -52,4 +52,8 @@
 
 .cart__price {
   color: rgb(17, 83, 17);
+}
+
+.cart__delete-icon {
+  margin-right: 10px;
 }

@@ -2,8 +2,16 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 10px;
   font-size: 17px;
+}
+
+.cart-delete {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  width: 100%;
 }
 
 .cart__total-price {
