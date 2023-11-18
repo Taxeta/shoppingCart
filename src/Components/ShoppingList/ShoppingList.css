@@ -52,6 +52,8 @@
 
 .cart__price {
   color: rgb(17, 83, 17);
+  margin: 5px;
+  white-space: nowrap;
 }
 
 .cart__delete-icon {

@@ -4,3 +4,12 @@
   gap: 15px;
   justify-items: center;
 }
+
+@media screen and (max-width: 650px) {
+  .shop-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
