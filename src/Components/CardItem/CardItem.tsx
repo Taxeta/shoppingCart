@@ -15,6 +15,8 @@ const CardItem = ({ item }: ItemCardProps): React.ReactElement => {
 
   const decimalPrice = item.price.toFixed(2);
 
+  const comasPrice = decimalPrice.replace(/\./g, ",");
+
   return (
     <article
       className={isSelected ? "item-card-selected" : "item-card-unselected"}
@@ -28,7 +30,7 @@ const CardItem = ({ item }: ItemCardProps): React.ReactElement => {
       />
       <ul className="item__list-container">
         <li className="item__title">{item.name}</li>
-        <li className="item__price">{decimalPrice} €</li>
+        <li className="item__price">{comasPrice} €</li>
       </ul>
     </article>
   );

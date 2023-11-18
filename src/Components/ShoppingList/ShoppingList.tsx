@@ -33,6 +33,8 @@ const ShoppingList = ({ item }: shoppCartItem): React.ReactElement => {
 
   const decimalPrice = (item.price * quantity).toFixed(2);
 
+  const comasPrice = decimalPrice.replace(/\./g, ",");
+
   return (
     <article className="cart-container">
       <ul className="cart__items">
@@ -47,7 +49,7 @@ const ShoppingList = ({ item }: shoppCartItem): React.ReactElement => {
           </button>
         </li>
         <li className="cart__title">{item.name}</li>
-        <li className="cart__price">{decimalPrice} €</li>
+        <li className="cart__price">{comasPrice} €</li>
         <li className="cart__price-control">
           <button className="solid-button-decrement" onClick={decrementProduct}>
             -
