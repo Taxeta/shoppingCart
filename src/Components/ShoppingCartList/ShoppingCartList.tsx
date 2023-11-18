@@ -20,6 +20,8 @@ const ShoppingCartList = (): React.ReactElement => {
 
   const decimalPrice = totalPrice.toFixed(2);
 
+  const comasPrice = decimalPrice.replace(/\./g, ",");
+
   const totalItemsCart = items
     .filter((item) => item.isSelected)
     .reduce((total, item) => {
@@ -80,7 +82,7 @@ const ShoppingCartList = (): React.ReactElement => {
             <span>Total cart: {totalItemsCart}</span>
             <li className="cart__total-price">
               <span>TOTAL</span>
-              <span>{decimalPrice} €</span>
+              <span>{comasPrice} €</span>
             </li>
           </>
         )}
