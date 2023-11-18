@@ -14,23 +14,7 @@ body {
   font-family: black;
   min-height: 100vh;
   background-size: contain;
-  background: #edaef9; /* Old browsers */
-  background: -moz-linear-gradient(
-    left,
-    #edaef9 0%,
-    #81b1fa 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    left,
-    #edaef9 0%,
-    #81b1fa 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to right,
-    #edaef9 0%,
-    #81b1fa 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edaef9', endColorstr='#81b1fa',GradientType=1 ); /* IE6-9 */
+  background-image: url("../assets/shoppingCart-background2.png");
 }
 
 ul,
