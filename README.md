@@ -29,3 +29,14 @@ Esta es una App hecha con React de una única página dividida en dos partes.
   Mirar de aplicar responsive.
 
   Al añadir artículos hacerlo de forma que se añadan en el orden en que se clican.
+
+COMANDOS DE USO:
+1- El servidor está levantado en render por lo que no es necesario aplicar ningún comando.
+
+- Npm run dev -> Ejecutar codigo en Browser
+- Npm run build -> Deployear
+
+- Npm run test -> Arrancar los test
+- Npm run test:coverage -> Arrancar los test con análisis exausto
+
+Npm run build --w / Npm run test --w (Modos watcher)
